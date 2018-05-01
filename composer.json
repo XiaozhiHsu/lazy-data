@@ -1,0 +1,23 @@
+{
+    "name": "XiaozhiHsu/lazy-data",
+    "description": "Construct the testing data for phpunit,which depend on phalcon",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xiaozhi Hsu",
+            "email": "xiaozhihsu@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LazyData\\": "src/",
+            "LazyData\\Helper\\": "src/Helper",
+            "LazyData\\Tool\\": "src/Tool"
+        }
+    }
+}

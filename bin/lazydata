@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+require __DIR__ . '/../src/Lazydata.php';
+
+$shortopts  = "";
+$shortopts .= "n:";
+$shortopts .= "c:";
+$shortopts .= "d:";
+
+$options = getopt($shortopts);
+
+if(!isset($options['c'])){
+    echo '-c 参数必填项目 创建的类名称'.PHP_EOL;
+    return;
+}
+
+if(!isset($options['n'])){
+    $options['n'] = $options['c'];
+}
+
+if(!isset($options['d'])){
+    echo '-d 参数必填项目 指定需要生成builder的xml文件所在目录'.PHP_EOL;
+    return;
+}
+
+$className = $options['c'];
+$namespace = $options['n'];
+$xmlDir    = $options['d'];
+
+
+$lazydata = new Lazydata\Lazydata();
+$lazydata->setClassName( $className )
+    ->setNamespace( $namespace )
+    ->setDir( $xmlDir)
+    ->run();
